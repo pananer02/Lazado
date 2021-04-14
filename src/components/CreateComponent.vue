@@ -1,19 +1,20 @@
 <template>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h1> Create Student </h1>
-            <form>
+            <!-- Content goes here -->
+            <h1>Create Student</h1>
+            <form @submit.prevent="handleSubmitForm">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" v-model="user.name" required> 
+                    <input type="text" class="form-control" v-model="username.name" required> 
                 </div>
                 <div class="form-group">
-                    <label for="name">ID</label>
-                    <input type="text" class="form-control" v-model="user.ID" required> 
+                    <label for="ID">ID</label>
+                    <input type="text" class="form-control" v-model="username.id" required> 
                 </div>
                 <div class="form-group">
-                    <label for="name">password</label>
-                    <input type="password" class="form-control" v-model="user.password" required> 
+                     <label for="Tel">Tel</label>
+                    <input type="number" class="form-control" v-model="username.tel" required> 
                 </div>
 
                 <div class="form-group">
@@ -25,21 +26,31 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-    data(){
-        return{
-            user:{
-                name:'',
-                ID:'',
-                password:''
+    data() {
+        return {
+            username: {
+                name: '',
+                id: '',
+                tel: ''
             }
         }
     },
-    methos:{
-        handleSubmitForm(){
-
+    methods: {
+        handleSubmitForm() {
+            let apiURL = 'http://localhost:4000/api/create-username';
+            axios.post(apiURL, this.username).then(() => {
+                this.$router.push('/view');
+                this.username = {
+                    name: '',
+                    id: '',
+                    tel: ''
+                }
+            }).catch(error => {
+                console.log(error)
+            })
         }
     }
-
 }
 </script>

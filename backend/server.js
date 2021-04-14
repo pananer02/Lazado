@@ -4,39 +4,42 @@ let express = require('express'),
     database = require('./database'),
     bodyParser = require('body-parser')
 
-// connect MongoDB
+// Connect MongoDB
 mongoose.Promise = global.Promise;
-mongoose.connect(database.db,{
-    useNewUrlParser:true,
-    userUnifiedTopology:true
-}).then(()=>{
-    console.log('Database connected succesfully')
-}, error =>{
-    console.log('Connot connect to database ' +- error)
+mongoose.connect(database.db, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('Database connected succesfully');
+}, error => {
+    console.log('Cannot connect to database ' + error)
 })
 
-const usernameAPI = require('../backend/routes/username.route');
+const studentAPI = require('../backend/routes/username.route');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }))
+app.use(cors());
 
 // API
-app.use('/api',usernameAPI);
+app.use('/api', studentAPI);
 
-//create port
+// CREATE PORT
 const port = process.env.PORT || 4000;
-const server = app.listen(port , () =>{
-    console.log('Connected to port '+port)
+const server = app.listen(port, () => {
+    console.log('Connected to port ' + port)
 })
-// 404
-app.use((req,res,next)=>{
+
+// 404 Handler
+app.use((req, res, next) => {
     next(createError(404))
 })
-// error
-app.use(function(err,req,res,next){
+
+// error handler
+app.use(function(err, req, res, next) {
     console.error(err.message);
-    if(!err.statusCode) err.statusCode = 500;
+    if (!err.statusCode) err.statusCode = 500;
     res.status(err.statusCode).send(err.message)
 })

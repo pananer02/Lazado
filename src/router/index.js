@@ -6,18 +6,18 @@ import ListComponent from "@/components/ListComponent.vue";
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
     component: CreateComponent,
-  },
-  {
-    path: "/edit/:id",
-    name: "edit",
-    component: EditComponent,
   },
   {
     path: "/view",
     name: "view",
     component: ListComponent,
+  },
+  {
+    path: "/edit/:id",
+    name: "edit",
+    component: EditComponent,
   },
 ];
 

@@ -6,15 +6,19 @@
             <form @submit.prevent="handleUpdateForm">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" v-model="username.name" required>
+                    <input type="text" class="form-control" v-model="skateboard.name" required>
                 </div>
                 <div class="form-group">
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" v-model="username.id" required>
+                    <label for="gen">gen</label>
+                    <input type="text" class="form-control" v-model="skateboard.gen" required>
                 </div>
                 <div class="form-group">
-                    <label for="tel">Tel</label>
-                    <input type="tel" class="form-control" v-model="username.tel" required>
+                    <label for="baht">baht</label>
+                    <input type="number" class="form-control" v-model="skateboard.baht" required>
+                </div>
+                 <div class="form-group">
+                    <label for="amount">amount</label>
+                    <input type="number" class="form-control" v-model="skateboard.amount" required>
                 </div>
 
                 <div class="form-group">
@@ -30,21 +34,21 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            username: {}
+            skateboard: {}
         }
     },
     created() {
-        let apiURL = `http://localhost:4000/apiuser/edit-username/${this.$route.params.id}`;
+        let apiURL = `http://localhost:4000/apiSB/edit-skateboard/${this.$route.params.id}`;
         axios.get(apiURL).then((res) => {
-            this.username = res.data
+            this.skateboard = res.data
         })
     },
     methods: {
         handleUpdateForm() {
-            let apiURL = `http://localhost:4000/apiuser/update-username/${this.$route.params.id}`;
-            axios.put(apiURL, this.username).then((res) => {
+            let apiURL = `http://localhost:4000/apiSB/update-skateboard/${this.$route.params.id}`;
+            axios.put(apiURL, this.skateboard).then((res) => {
                 console.log(res);
-                this.$router.push('/view')
+                this.$router.push('/view3')
             }).catch(error => {
                 console.log(error)
             })

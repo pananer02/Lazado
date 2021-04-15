@@ -39,7 +39,7 @@ export default {
     },
     methods: {
         handleSubmitForm() {
-            let apiURL = 'http://localhost:4000/api/create-username';
+            let apiURL = 'http://localhost:4000/apiUser/create-username';
             axios.post(apiURL, this.username).then(() => {
                 this.$router.push('/view');
                 this.username = {

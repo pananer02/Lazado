@@ -2,28 +2,30 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <!-- Display goes here -->
-            <h1>Show students</h1>
+            <h1>Show skateboard</h1>
             <div class="row">
                 <div class="col-md-12">
                     <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
                                 <th>Name</th>
-                                <th>ID</th>
-                                <th>Tel</th>
+                                <th>Gen</th>
+                                <th>Baht</th>
+                                <th>Amount</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="username in Usernames" :key="username._id">
-                                <td>{{ username.name }}</td>
-                                <td>{{ username.id }}</td>
-                                <td>{{ username.tel }}</td>
+                            <tr v-for="skateboard in Skateboards" :key="skateboard._id">
+                                <td>{{ skateboard.name }}</td>
+                                <td>{{ skateboard.gen }}</td>
+                                <td>{{ skateboard.baht }}</td>
+                                <td>{{ skateboard.amount }}</td>
                                 <td>
-                                    <router-link :to="{name: 'edit', params: {id: username._id}}" class="btn btn-success">
+                                    <router-link :to="{name: 'edit2', params: {id: skateboard._id}}" class="btn btn-success">
                                         Edit
                                     </router-link>
-                                    <button @click.prevent="deleteUsername(username._id)" class="btn btn-danger">
+                                    <button @click.prevent="deleteskateboard(skateboard._id)" class="btn btn-danger">
                                         Delete
                                     </button>
                                 </td>
@@ -41,24 +43,24 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            Usernames: []
+            Skateboards: []
         }
     },
     created() {
-        let apiURL = 'http://localhost:4000/apiUser';
+        let apiURL = 'http://localhost:4000/apiSB';
         axios.get(apiURL).then(res => {
-            this.Usernames = res.data
+            this.Skateboards = res.data
         }).catch(error => {
             console.log(error)
         })
     },
     methods: {
-        deleteUsername(id) {
-            let apiURL = `http://localhost:4000/apiUser/delete-username/${id}`;
-            let indexOfArrayItem = this.Usernames.findIndex(i => i._id === id);
+        deleteskateboard(id) {
+            let apiURL = `http://localhost:4000/apiSB/delete-skateboard/${id}`;
+            let indexOfArrayItem = this.Skateboards.findIndex(i => i._id === id);
             if (window.confirm("Do you really want to delete?")) {
                 axios.delete(apiURL).then(() => {
-                    this.Usernames.splice(indexOfArrayItem, 1)
+                    this.Skateboards.splice(indexOfArrayItem, 1)
                 }).catch(error => {
                     console.log(error)
                 })

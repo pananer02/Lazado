@@ -13,6 +13,11 @@
                     <input type="text" class="form-control" v-model="skateboard.gen" required>
                 </div>
                 <div class="form-group">
+                    <label for="img">img</label>
+                    <input type="text" class="form-control" v-model="skateboard.img" required>
+                    <img :src="skateboard.img" width="100" />
+                </div>
+                <div class="form-group">
                     <label for="baht">baht</label>
                     <input type="number" class="form-control" v-model="skateboard.baht" required>
                 </div>

@@ -13,6 +13,10 @@
                     <input type="text" class="form-control" v-model="skateboard.gen" required> 
                 </div>
                 <div class="form-group">
+                    <label for="img">img</label>
+                    <input type="text" class="form-control" v-model="skateboard.img" required> 
+                </div>
+                <div class="form-group">
                      <label for="baht">Baht</label>
                     <input type="number" class="form-control" v-model="skateboard.baht" required> 
                 </div>
@@ -25,6 +29,7 @@
                     <button class="btn btn-success btn-block">Create</button>
                 </div>
             </form>
+            <router-link to="/admin">Back</router-link>
         </div>
     </div>
 </template>
@@ -37,6 +42,7 @@ export default {
             skateboard: {
                 name: '',
                 gen: '',
+                img: '',
                 baht: '',
                 amount:''
             }
@@ -50,6 +56,7 @@ export default {
                 this.skateboard = {
                     name: '',
                     gen: '',
+                    img: '',
                     baht: '',
                     amount:''
                 }

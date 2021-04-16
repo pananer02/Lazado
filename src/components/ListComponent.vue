@@ -32,6 +32,7 @@
                     </table>
                 </div>
             </div>
+            <router-link to="/admin">Back</router-link>
         </div>
     </div>
 </template>

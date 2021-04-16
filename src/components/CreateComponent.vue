@@ -21,6 +21,7 @@
                     <button class="btn btn-success btn-block">Create</button>
                 </div>
             </form>
+            <router-link to="/">Back</router-link>
         </div>
     </div>
 </template>

@@ -10,6 +10,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Gen</th>
+                                <th>IMG</th>
                                 <th>Baht</th>
                                 <th>Amount</th>
                                 <th>Actions</th>
@@ -19,6 +20,7 @@
                             <tr v-for="skateboard in Skateboards" :key="skateboard._id">
                                 <td>{{ skateboard.name }}</td>
                                 <td>{{ skateboard.gen }}</td>
+                                <td><img :src="skateboard.img" width="100" /></td>
                                 <td>{{ skateboard.baht }}</td>
                                 <td>{{ skateboard.amount }}</td>
                                 <td>

@@ -8,6 +8,7 @@ import ListComponent from "@/components/ListComponent.vue";
 import ListComponent2 from "@/components/List2Component.vue";
 import ListComponent3 from "@/components/List3Component.vue";
 import AdminComponent from "@/components/AdminComponent.vue";
+import buy from "@/components/Buy.vue";
 import Login from "@/components/Login.vue";
 
 const routes = [
@@ -32,7 +33,7 @@ const routes = [
     component: ListComponent,
   },
   {
-    path: "/view2",
+    path: "/",
     name: "view2",
     component: ListComponent2,
   },
@@ -50,6 +51,11 @@ const routes = [
     path: "/edit2/:id",
     name: "edit2",
     component: EditComponent2,
+  },
+  {
+    path: "/buy/:id",
+    name: "buy",
+    component: buy,
   },
   {
     path: "/Login",

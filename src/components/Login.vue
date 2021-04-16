@@ -14,6 +14,7 @@
         <button class="btn btn-success btn-block">Login</button>
 
     </form>
+    <router-link to="/">Back</router-link>
 </template>
 <script>
    

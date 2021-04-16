@@ -8,6 +8,9 @@ let skateboardSchema = new Schema({
     gen: {
         type: String
     },
+    img:{
+        type: String
+    },
     baht: {
         type: Number
     },

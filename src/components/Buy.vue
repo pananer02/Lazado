@@ -7,14 +7,15 @@
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" class="form-control" v-model="skateboard.name" required disabled>
+
                 </div>
                 <div class="form-group">
                     <label for="gen">gen</label>
-                    <input type="text" class="form-control" v-model="skateboard.gen" required disabled>
+                    <input type="text" class="form-control" v-model="skateboard.gen " required disabled>
                 </div>
                 <div class="form-group">
                     <label for="img">img</label>
-                    <input type="text" class="form-control" v-model="skateboard.img" required disabled>
+                    <input type="text" class="form-control" v-model="skateboard.img"  required disabled>
                     <img :src="skateboard.img" width="500" />
                     
                 </div>
@@ -23,24 +24,27 @@
                     <input type="number" class="form-control" v-model="skateboard.baht" required disabled>
                 </div>
                  <div class="form-group">
-                    <label for="amount">amount</label>
-                    <input type="number" class="form-control" v-model="skateboard.amount" required disabled>
+                    <label for="Status">Status</label>
+                    <input type="text" class="form-control" v-model="skateboard.status" required disabled>
                 </div>
                 <div class="form-group">
                     <label for="Name">ชื่อ-นามสกุล</label>
-                    <input type="text" class="form-control" required>
+                    <input type="text" class="form-control" v-model="history.nameBuy" required>
                 </div>
                 <div class="form-group">
                     <label for="Adrees">ที่อยู่</label><br>
-                    <textarea name="message" rows="10" cols="70"></textarea>
+                    <textarea name="message" rows="10" cols="70" v-model="history.address"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="else">หมายเหตุ</label><br>
-                    <textarea name="message" rows="5" cols="70"></textarea>
+                    <label for="Pray">ชำระเงินทางใด</label><br>
+                    <input type="radio" id="paypal" value="paypal" v-model="history.pay">
+                    <label for="paypal"><img src='https://www.arcadier.com/learn/assets/uploads/payments/logo1511166968img.png' width="70"></label>
+                    <br>
+                    <input type="radio" id="visa" value="visa" v-model="history.pay">
+                    <label for="visa"><img src='https://www.kasikornbank.com/SiteCollectionDocuments/personal/the-wisdom/articles/e-newsletter/issue/2020/issue47-nov/img/privileges-img-01.jpg' width=70></label>
                 </div>
-
                 <div class="form-group">
-                    <div v-if="skateboard.amount != 0">
+                    <div v-if="skateboard.status == 'Available'">
                          <button class="btn btn-primary btn-block">ชือสินค้า</button>
                     </div>
                     <div v-else>
@@ -57,7 +61,16 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            skateboard: {}
+            skateboard: {},
+            history:{
+                name: '',
+                gen: '',
+                baht:'',
+                nameBuy:'',
+                address:'',
+                pay:'',
+                Date:new Date().toISOString().slice(0,10),
+            }
         }
     },
     created() {
@@ -68,11 +81,26 @@ export default {
     },
     methods: {
         handleUpdateForm() {
+            this.history.name = this.skateboard.name;
+            this.history.gen = this.skateboard.gen;
+            this.history.baht = this.skateboard.baht;
             if (window.confirm("Do you really want to Buy?")) {
-                if (window.confirm("Thank you for Buy")) {
-                this.$router.push('/');
-                }
-                this.$router.push('/');
+                let apiURL = 'http://localhost:4000/apiHistory/create-history';
+                axios.post(apiURL, this.history).then(() => {
+                this.history = {
+                    name:'',
+                    gen: '',
+                    baht:'',
+                    nameBuy:'',
+                    address:'',
+                    pay:'',
+                    Date:'',
+            }
+            }).catch(error => {
+                console.log(error)
+            })
+               alert("Thank you for Buy")
+                this.$router.push('/History');
             }
             
         }

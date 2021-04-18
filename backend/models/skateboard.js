@@ -14,8 +14,8 @@ let skateboardSchema = new Schema({
     baht: {
         type: Number
     },
-    amount:{
-        type: Number
+    status:{
+        type: String
     }
 }, {
     collection: 'skateboard'

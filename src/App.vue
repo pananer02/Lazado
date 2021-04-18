@@ -3,7 +3,7 @@
     <!-- Nave bar -->
     <nav class="navbar navbar-dark bg-primary justify-content-between flex-nowrap flex-row">
      <div class="container"> 
-      <router-link to="/" class="navbar-brand float-left">Lazadoe</router-link>
+      <router-link to="/" class="navbar-brand float-left">LAZADOE</router-link>
       <ul class="nav navbar-nav flex-row float-right">
        <!-- 
          <li class="nav-item">
@@ -16,6 +16,9 @@
           <router-link to="/view2" class="nav-link">Shop skateboard</router-link>
         </li>
         -->
+        <li class="nav-item">
+          <router-link to="/history" class="nav-link pr-3">History</router-link>
+        </li>
         <li class="nav-item">
           <router-link to="/Login" class="nav-link pr-3">Login</router-link>
         </li>

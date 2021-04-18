@@ -7,13 +7,14 @@ import EditComponent2 from "@/components/Edit2Component.vue";
 import ListComponent from "@/components/ListComponent.vue";
 import ListComponent2 from "@/components/List2Component.vue";
 import ListComponent3 from "@/components/List3Component.vue";
+import ListComponent4 from "@/components/List4Component.vue";
 import AdminComponent from "@/components/AdminComponent.vue";
 import buy from "@/components/Buy.vue";
 import Login from "@/components/Login.vue";
 
 const routes = [
   {
-    path: "/home",
+    path: "/",
     name: "home",
     component: HomeComponent,
   },
@@ -33,7 +34,7 @@ const routes = [
     component: ListComponent,
   },
   {
-    path: "/",
+    path: "/view2",
     name: "view2",
     component: ListComponent2,
   },
@@ -41,6 +42,11 @@ const routes = [
     path: "/view3",
     name: "view3",
     component: ListComponent3,
+  },
+  {
+    path: "/history",
+    name: "history",
+    component: ListComponent4,
   },
   {
     path: "/edit/:id",

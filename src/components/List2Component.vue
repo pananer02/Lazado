@@ -12,7 +12,7 @@
                                 <th>Gen</th>
                                 <th>IMG</th>
                                 <th>Baht</th>
-                                <th>Amount</th>
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -22,9 +22,9 @@
                                 <td>{{ skateboard.gen }}</td>
                                 <td><img :src="skateboard.img" width="100" /></td>
                                 <td>{{ skateboard.baht }}</td>
-                                <td>{{ skateboard.amount }}</td>
+                                <td>{{ skateboard.status }}</td>
                                 <td>
-                                    <router-link :to="{name: '', params: {id: skateboard._id}}" class="btn btn-success">
+                                    <router-link :to="{name: 'buy', params: {id: skateboard._id}}" class="btn btn-success">
                                        Buy
                                     </router-link>
                                 </td>

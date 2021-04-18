@@ -22,8 +22,8 @@
                     <input type="number" class="form-control" v-model="skateboard.baht" required>
                 </div>
                  <div class="form-group">
-                    <label for="amount">amount</label>
-                    <input type="number" class="form-control" v-model="skateboard.amount" required>
+                    <label for="Status">Status</label>
+                    <input type="text" class="form-control" v-model="skateboard.status" required>
                 </div>
 
                 <div class="form-group">

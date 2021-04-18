@@ -2,7 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <!-- Display goes here -->
-            <h1>Show skateboard</h1>
+            <h1>Show history</h1>
             <div class="row">
                 <div class="col-md-12">
                     <table class="table table-striped">
@@ -10,24 +10,25 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Gen</th>
-                                <th>IMG</th>
                                 <th>Baht</th>
-                                <th>Status</th>
+                                <th>NameBuy</th>
+                                <th>Address</th>
+                                <th>Pay</th>
+                                <th>Date</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="skateboard in Skateboards" :key="skateboard._id">
-                                <td>{{ skateboard.name }}</td>
-                                <td>{{ skateboard.gen }}</td>
-                                <td><img :src="skateboard.img" width="100" /></td>
-                                <td>{{ skateboard.baht }}</td>
-                                <td>{{ skateboard.status }}</td>
+                            <tr v-for="history in historys" :key="history._id">
+                                <td>{{ history.name }}</td>
+                                <td>{{ history.gen }}</td>
+                                <td>{{ history.baht }}</td>
+                                <td>{{ history.nameBuy }}</td>
+                                <td>{{ history.address }}</td>
+                                <td>{{ history.pay}}</td>
+                                <td>{{ history.Date}}</td>
                                 <td>
-                                    <router-link :to="{name: 'edit2', params: {id: skateboard._id}}" class="btn btn-success">
-                                        Edit
-                                    </router-link>
-                                    <button @click.prevent="deleteskateboard(skateboard._id)" class="btn btn-danger">
+                                    <button @click.prevent="deletehistory(history._id)" class="btn btn-danger">
                                         Delete
                                     </button>
                                 </td>
@@ -36,7 +37,6 @@
                     </table>
                 </div>
             </div>
-            <router-link to="/admin">Back</router-link>
         </div>
     </div>
 </template>
@@ -46,24 +46,24 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            Skateboards: []
+            historys: []
         }
     },
     created() {
-        let apiURL = 'http://localhost:4000/apiSB';
+        let apiURL = 'http://localhost:4000/apiHistory';
         axios.get(apiURL).then(res => {
-            this.Skateboards = res.data
+            this.historys = res.data
         }).catch(error => {
             console.log(error)
         })
     },
     methods: {
-        deleteskateboard(id) {
-            let apiURL = `http://localhost:4000/apiSB/delete-skateboard/${id}`;
-            let indexOfArrayItem = this.Skateboards.findIndex(i => i._id === id);
+        deletehistory(id) {
+            let apiURL = `http://localhost:4000/apiHistory/delete-history/${id}`;
+            let indexOfArrayItem = this.historys.findIndex(i => i._id === id);
             if (window.confirm("Do you really want to delete?")) {
                 axios.delete(apiURL).then(() => {
-                    this.Skateboards.splice(indexOfArrayItem, 1)
+                    this.historys.splice(indexOfArrayItem, 1)
                 }).catch(error => {
                     console.log(error)
                 })

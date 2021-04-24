@@ -9,6 +9,8 @@ import ListComponent2 from "@/components/List2Component.vue";
 import ListComponent3 from "@/components/List3Component.vue";
 import ListComponent4 from "@/components/List4Component.vue";
 import AdminComponent from "@/components/AdminComponent.vue";
+import CosoneComponent from "@/components/CosoneComponent.vue";
+import GeeleComponent from "@/components/GeeleComponent.vue";
 import buy from "@/components/Buy.vue";
 import Login from "@/components/Login.vue";
 
@@ -73,6 +75,16 @@ const routes = [
     name: "admin",
     component: AdminComponent,
   },
+  {
+    path: "/Cosone",
+    name: "cosone",
+    component: CosoneComponent,
+  },
+  {
+    path: "/Geele",
+    name: "geele",
+    component: GeeleComponent,
+  }
 ];
 
 const router = createRouter({

@@ -19,9 +19,11 @@ usernameRoute.route('/').get((req, res, next) => {
 usernameRoute.route('/create-username').post((req, res, next) => {
     UsernameModel.create(req.body, (error, data) => {
         if (error) {
+            console.log('username unsuccessfully');
             return next(error);
         } else {
             res.json(data);
+            console.log('username successfully');
         }
     })
 })

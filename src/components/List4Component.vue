@@ -8,14 +8,13 @@
                     <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
-                                <th>Name</th>
-                                <th>Gen</th>
-                                <th>Baht</th>
-                                <th>NameBuy</th>
-                                <th>Address</th>
-                                <th>Pay</th>
-                                <th>Date</th>
-                                <th>Actions</th>
+                                <th>สินค้าที่ชื้อ</th>
+                                <th>รุ่น</th>
+                                <th>บาท</th>
+                                <th>ชื่อคนที่สั่งชื้อ</th>
+                                <th>ที่อยู่</th>
+                                <th>ช่องทางชำระเงิน</th>
+                                <th>วันที่สั่งชื้อ</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,15 +26,11 @@
                                 <td>{{ history.address }}</td>
                                 <td>{{ history.pay}}</td>
                                 <td>{{ history.Date}}</td>
-                                <td>
-                                    <button @click.prevent="deletehistory(history._id)" class="btn btn-danger">
-                                        Delete
-                                    </button>
-                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <router-link to="/">Back</router-link>
             </div>
         </div>
     </div>

@@ -39,7 +39,8 @@ export default {
     },
     methods:{
         handlesubmit(){
-            
+            alert("ระบบยังไม่สามารถใช้งานได้...")
+                this.$router.push('/');
         }
     }
 }

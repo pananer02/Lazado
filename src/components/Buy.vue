@@ -69,7 +69,7 @@ export default {
                 nameBuy:'',
                 address:'',
                 pay:'',
-                Date:new Date().toISOString().slice(0,10),
+                Date:new Date()
             }
         }
     },

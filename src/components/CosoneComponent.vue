@@ -7,7 +7,7 @@
                 <div class="col-sm-4" style="background-color:lavender;">
                     <router-link to="/view2" class="nav-link pr-3">All Gen</router-link>
                 </div>
-                <div class="col-sm-4" style="background-color:lavender;">
+                <div class="col-sm-4" style="background-color:lavenderblush;">
                     <router-link to="/Cosone" class="nav-link pr-3">Cosone</router-link>
                 </div>
                 <div class="col-sm-4" style="background-color:lavender;">
@@ -28,12 +28,13 @@
                         </thead>
                         <tbody>
                             <tr v-for="skateboard in Skateboards" :key="skateboard._id">
-                                <td>{{ skateboard.name }}</td>
-                                <td>{{ skateboard.gen }}</td>
-                                <td><img :src="skateboard.img" width="100" /></td>
-                                <td>{{ skateboard.baht }}</td>
-                                <td>{{ skateboard.status }}</td>
-                                <td>
+
+                                <td v-if="skateboard.gen == 'Cosone'">{{ skateboard.name }}</td>
+                                <td v-if="skateboard.gen == 'Cosone'">{{ skateboard.gen }}</td>
+                                <td v-if="skateboard.gen == 'Cosone'"><img :src="skateboard.img" width="100" /></td>
+                                <td v-if="skateboard.gen == 'Cosone'">{{ skateboard.baht }}</td>
+                                <td v-if="skateboard.gen == 'Cosone'">{{ skateboard.status }}</td>
+                                <td v-if="skateboard.gen == 'Cosone'">
                                     <router-link :to="{name: 'buy', params: {id: skateboard._id}}" class="btn btn-success">
                                        Buy
                                     </router-link>

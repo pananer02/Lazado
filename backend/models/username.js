@@ -12,7 +12,7 @@ let usernameSchema = new Schema({
         type: Number
     }
 }, {
-    collection: 'usernames'
+    collection: 'username'
 })
 
 module.exports = mongoose.model('username', usernameSchema);

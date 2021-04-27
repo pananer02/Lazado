@@ -4,11 +4,11 @@
 
         <div class="form-group">
            <label>Name</label>
-            <input type="text" class="form-control" v-model="name" placeholder="Name"/>
+            <input type="text" class="form-control" v-model="Usernames.name" placeholder="Name"/>
         </div>
         <div class="form-group">
             <label>ID</label>
-             <input type="text" class="form-control" v-model="id" placeholder="ID"/>
+             <input type="text" class="form-control" v-model="Usernames.id" placeholder="ID"/>
          </div>
 
         <button class="btn btn-success btn-block">Login</button>
@@ -39,8 +39,12 @@ export default {
     },
     methods:{
         handlesubmit(){
+            if(this.Usernames.name == "admin" && this.Usernames.id == "pananer02"){
+                this.$router.push('admin');
+            }else{
             alert("ระบบยังไม่สามารถใช้งานได้...")
                 this.$router.push('/');
+            }
         }
     }
 }

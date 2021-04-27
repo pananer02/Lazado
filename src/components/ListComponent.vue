@@ -2,7 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <!-- Display goes here -->
-            <h1>Show students</h1>
+            <h1>Show User</h1>
             <div class="row">
                 <div class="col-md-12">
                     <table class="table table-striped">

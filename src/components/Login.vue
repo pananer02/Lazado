@@ -72,8 +72,8 @@ export default {
           alert("ยินดีต้อนรับ " + this.Usernames.name + " เข้าสู่ระบบ");
           this.$router.push("/");
         } else {
-          alert("ชื่อ หรือ ID ไม่ถูกต้อง");
-          this.$router.push("/");
+          alert("Name หรือ ID ไม่ถูกต้อง");
+          this.$router.push("/login");
         }
       }
     },

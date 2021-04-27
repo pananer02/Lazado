@@ -23,9 +23,12 @@
                 </div>
                  <div class="form-group">
                     <label for="Status">Status</label>
-                    <input type="text" class="form-control" v-model="skateboard.status" required>
+                    <input type="text" class="form-control" v-model="skateboard.status" disabled>
                 </div>
-
+                <div class="form-group">
+                     <label for="amount">amount</label>
+                    <input type="number" class="form-control" v-model="skateboard.amount" required> 
+                </div>
                 <div class="form-group">
                     <button class="btn btn-primary btn-block">Update</button>
                 </div>
@@ -50,6 +53,11 @@ export default {
     },
     methods: {
         handleUpdateForm() {
+            if(this.skateboard.amount == 0){
+                this.skateboard.status = "Unavailable";
+            }else{
+                this.skateboard.status = "Available";
+            }
             let apiURL = `http://localhost:4000/apiSB/update-skateboard/${this.$route.params.id}`;
             axios.put(apiURL, this.skateboard).then((res) => {
                 console.log(res);

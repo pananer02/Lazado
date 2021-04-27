@@ -1,34 +1,34 @@
 <template>
   <div>
     <!-- Nave bar -->
-    <nav class="navbar navbar-dark bg-primary justify-content-between flex-nowrap flex-row">
-     <div class="container"> 
-      <router-link to="/" class="navbar-brand float-left">LAZADOE</router-link>
-      <ul class="nav navbar-nav flex-row float-right">
-       <!-- 
-         <li class="nav-item">
-          <router-link to="/Create" class="nav-link pr-3">Create Username</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/admin" class="nav-link pr-3">Admin</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/view2" class="nav-link">Shop skateboard</router-link>
-        </li>
-        -->
-        <li class="nav-item">
-          <router-link to="/history" class="nav-link pr-3">History</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/Login" class="nav-link pr-3">Login</router-link>
-        </li>
-         <li class="nav-item">
-          <router-link to="/Create" class="nav-link pr-3">Register</router-link>
-        </li>
-
-      </ul>
-
-     </div>
+    <nav
+      class="navbar navbar-dark bg-primary justify-content-between flex-nowrap flex-row"
+    >
+      <div class="container">
+        <router-link to="/" class="navbar-brand float-left"
+          >LAZADOE</router-link
+        >
+        <ul class="nav navbar-nav flex-row float-right">
+          <li class="nav-item">
+            <router-link to="/history" class="nav-link pr-3"
+              >History</router-link
+            >
+          </li>
+          <li class="nav-item">
+            <a href="" @click.prevent="Login()" class="nav-link pr-3">Login</a>
+          </li>
+          <li class="nav-item">
+            <a href="" @click.prevent="Logout()" class="nav-link pr-3"
+              >Logout</a
+            >
+          </li>
+          <li class="nav-item">
+            <router-link to="/Create" class="nav-link pr-3"
+              >Register</router-link
+            >
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <div class="container mt-5">
@@ -36,3 +36,30 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  methods: {
+    Logout() {
+      if (window.confirm("ทำการ Logout หรือไม่?")) {
+        localStorage.removeItem("token");
+        this.login = false;
+        alert("Logout เสร็จสิ้น");
+        this.$router.push("/");
+      }
+    },
+    Login(){
+      let token = localStorage.getItem("token");
+      if (token) {
+      //alert('don\'t have token')
+       alert("ท่านได้ Login แล้ว");
+      }else{
+      this.$router.push("/login");
+      }
+    },
+    created() {
+      let token = localStorage.getItem("token");
+      console.log(token);
+    },
+  },
+};
+</script>

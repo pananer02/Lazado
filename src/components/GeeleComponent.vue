@@ -2,7 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <!-- Display goes here -->
-            <h1>Show Skateboard</h1>
+            <h1>สินค้า Geele</h1>
             <div class="row">
                 <div class="col-sm-4" style="background-color:lavender;">
                     <router-link to="/view2" class="nav-link pr-3">All Gen</router-link>
@@ -23,6 +23,7 @@
                                 <th>IMG</th>
                                 <th>Baht</th>
                                 <th>Status</th>
+                                <th>Amount</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -34,6 +35,7 @@
                                 <td v-if="skateboard.gen == 'Geele'"><img :src="skateboard.img" width="100" /></td>
                                 <td v-if="skateboard.gen == 'Geele'">{{ skateboard.baht }}</td>
                                 <td v-if="skateboard.gen == 'Geele'">{{ skateboard.status }}</td>
+                                <td v-if="skateboard.gen == 'Geele'">{{ skateboard.amount }}</td>
                                 <td v-if="skateboard.gen == 'Geele'">
                                     <router-link :to="{name: 'buy', params: {id: skateboard._id}}" class="btn btn-success">
                                        Buy

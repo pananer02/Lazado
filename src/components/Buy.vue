@@ -83,6 +83,12 @@ export default {
         handleUpdateForm() {
             this.history.name = this.skateboard.name;
             this.history.gen = this.skateboard.gen;
+            this.skateboard.amount -= 1;
+            if(this.skateboard.amount == 0){
+                this.skateboard.status = "Unavailable";
+            }else{
+                this.skateboard.status = "Available";
+            }
             this.history.baht = this.skateboard.baht;
             if (window.confirm("Do you really want to Buy?")) {
                 let apiURL = 'http://localhost:4000/apiHistory/create-history';
@@ -95,12 +101,19 @@ export default {
                     address:'',
                     pay:'',
                     Date:'',
-            }
+                }
             }).catch(error => {
                 console.log(error)
             })
-               alert("Thank you for Buy")
-                this.$router.push('/History');
+            apiURL = `http://localhost:4000/apiSB/update-skateboard/${this.$route.params.id}`;
+            axios.put(apiURL, this.skateboard).then((res) => {
+                console.log(res);
+                alert("Thank you for Buy")
+                this.$router.push('/');
+            }).catch(error => {
+                console.log(error)
+            })
+
             }
             
         }

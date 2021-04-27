@@ -16,6 +16,9 @@ let skateboardSchema = new Schema({
     },
     status:{
         type: String
+    },
+    amount:{
+        type: Number
     }
 }, {
     collection: 'skateboard'

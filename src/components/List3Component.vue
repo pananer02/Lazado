@@ -13,6 +13,7 @@
                                 <th>IMG</th>
                                 <th>Baht</th>
                                 <th>Status</th>
+                                <th>amount</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -23,6 +24,7 @@
                                 <td><img :src="skateboard.img" width="100" /></td>
                                 <td>{{ skateboard.baht }}</td>
                                 <td>{{ skateboard.status }}</td>
+                                <td>{{ skateboard.amount }}</td>
                                 <td>
                                     <router-link :to="{name: 'edit2', params: {id: skateboard._id}}" class="btn btn-success">
                                         Edit

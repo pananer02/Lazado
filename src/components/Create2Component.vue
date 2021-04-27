@@ -24,6 +24,10 @@
                      <label for="Status">Status</label>
                     <input type="text" class="form-control" v-model="skateboard.status" required> 
                 </div>
+                <div class="form-group">
+                     <label for="amount">amount</label>
+                    <input type="number" class="form-control" v-model="skateboard.amount" required> 
+                </div>
 
                 <div class="form-group">
                     <button class="btn btn-success btn-block">Create</button>
@@ -44,7 +48,8 @@ export default {
                 gen: '',
                 img: '',
                 baht: '',
-                status:''
+                status:'',
+                amount:'',
             }
         }
     },
@@ -58,7 +63,8 @@ export default {
                     gen: '',
                     img: '',
                     baht: '',
-                    status:''
+                    status:'',
+                    amount:''
                 }
             }).catch(error => {
                 console.log(error)

@@ -40,20 +40,25 @@
 export default {
   methods: {
     Logout() {
-      if (window.confirm("ทำการ Logout หรือไม่?")) {
-        localStorage.removeItem("token");
-        this.login = false;
-        alert("Logout เสร็จสิ้น");
-        this.$router.push("/");
-      }
-    },
-    Login(){
       let token = localStorage.getItem("token");
       if (token) {
-      //alert('don\'t have token')
-       alert("ท่านได้ Login แล้ว");
+        if (window.confirm("ทำการ Logout หรือไม่?")) {
+          localStorage.removeItem("token");
+          this.login = false;
+          alert("Logout เสร็จสิ้น");
+          this.$router.push("/");
+        }
       }else{
-      this.$router.push("/login");
+        alert("ท่านยังไม่ได้ Login");
+      }
+    },
+    Login() {
+      let token = localStorage.getItem("token");
+      if (token) {
+        //alert('don\'t have token')
+        alert("ท่านได้ Login แล้ว");
+      } else {
+        this.$router.push("/login");
       }
     },
     created() {
